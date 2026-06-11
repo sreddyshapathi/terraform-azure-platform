@@ -187,7 +187,15 @@ Next Phase:
 ```text
 Phase 2 - Networking
 ```
+## Current Status
 
+Current Phase:
+
+Phase 3 - Storage Completed
+
+Next Phase:
+
+Phase 4 - Key Vault
 ---
 
 ## Author
