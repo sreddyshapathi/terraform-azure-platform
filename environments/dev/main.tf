@@ -27,3 +27,14 @@ module "resource_group" {
   private_endpoint_subnet_cidr = var.private_endpoint_subnet_cidr
   management_subnet_cidr       = var.management_subnet_cidr
 }*/
+
+module "storage" {
+
+  source = "../../modules/storage"
+
+  resource_group_name = module.resource_group.resource_group_name
+
+  location     = var.location
+  environment  = var.environment
+  project_name = var.project_name
+}
