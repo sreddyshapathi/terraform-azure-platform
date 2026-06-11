@@ -11,3 +11,19 @@ module "resource_group" {
     ManagedBy   = "Terraform"
   }
 }
+
+
+/*module "network" {
+  source = "../../modules/network"
+
+  resource_group_name = module.resource_group.resource_group_name
+
+  location     = var.location
+  environment  = var.environment
+  project_name = var.project_name
+
+  vnet_cidr                    = var.vnet_cidr
+  aks_subnet_cidr              = var.aks_subnet_cidr
+  private_endpoint_subnet_cidr = var.private_endpoint_subnet_cidr
+  management_subnet_cidr       = var.management_subnet_cidr
+}*/
