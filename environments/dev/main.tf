@@ -63,3 +63,15 @@ module "acr" {
   project_name = var.project_name
   name_suffix  = var.name_suffix
 }
+
+
+module "monitoring" {
+
+  source = "../../modules/monitoring"
+
+  resource_group_name = module.resource_group.resource_group_name
+
+  location     = var.location
+  environment  = var.environment
+  project_name = var.project_name
+}
