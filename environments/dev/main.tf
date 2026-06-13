@@ -38,3 +38,28 @@ module "storage" {
   environment  = var.environment
   project_name = var.project_name
 }
+
+
+/*module "keyvault" {
+
+  source = "../../modules/keyvault"
+
+  resource_group_name = module.resource_group.resource_group_name
+
+  location     = var.location
+  environment  = var.environment
+  project_name = var.project_name
+}*/
+
+
+module "acr" {
+
+  source = "../../modules/acr"
+
+  resource_group_name = module.resource_group.resource_group_name
+
+  location     = var.location
+  environment  = var.environment
+  project_name = var.project_name
+  name_suffix  = var.name_suffix
+}

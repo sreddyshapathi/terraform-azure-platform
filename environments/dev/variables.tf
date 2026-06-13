@@ -29,3 +29,7 @@ variable "private_endpoint_subnet_cidr" {
 variable "management_subnet_cidr" {
   type = string
 }
+
+variable "name_suffix" {
+  type = string
+}

@@ -196,7 +196,19 @@ Phase 3 - Storage Completed
 Next Phase:
 
 Phase 4 - Key Vault
+
+### Phase 4 - Key Vault
+
+- [x] Azure Key Vault
+- [x] RBAC Authorization
+- [x] Soft Delete
+- [x] Purge Protection
 ---
+### Phase 5 - Container Platform
+
+- [x] Azure Container Registry (ACR)
+- [x] Private Container Registry
+- [x] Azure RBAC Authentication
 
 ## Author
 
