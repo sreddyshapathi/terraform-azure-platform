@@ -194,30 +194,9 @@ Add Azure Portal screenshot.
 
 Add Azure Portal screenshot.
 
----
 
-# Future Integrations
 
-The Key Vault will later integrate with:
 
-```text
-AKS
- │
- ├── Secrets Store CSI Driver
- │
- ├── Workload Identity
- │
- └── Managed Identity
-```
-
-Additional future integrations:
-
-* GitHub Actions
-* Azure Storage
-* Azure Monitor
-* Application Workloads
-
----
 
 # Conclusion
 

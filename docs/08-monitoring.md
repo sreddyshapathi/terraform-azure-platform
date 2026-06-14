@@ -58,16 +58,6 @@ Verify logs:
 
 Log Analytics Workspace → Logs
 
-## Screenshots
-
-Add screenshots:
-
-* Log Analytics Workspace
-* Diagnostic Settings
-* Alert Rules
-* Action Group
-* Azure Monitor Dashboard
-
 ## Benefits
 
 * Centralized logging

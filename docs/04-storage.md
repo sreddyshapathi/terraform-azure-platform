@@ -194,40 +194,6 @@ application-data
 ```
 
 
-## Security Settings
-
-Add Azure Portal screenshot.
-
----
-
-# Future Enhancements
-
-The following features will be implemented in later phases:
-
-* Azure Key Vault Integration
-* Private Endpoint Connectivity
-* AKS Persistent Volumes
-* Lifecycle Management Policies
-* Storage Monitoring and Alerts
-* Geo-Redundant Storage Evaluation
-* Customer Managed Keys (CMK)
-
----
-
-# Integration Roadmap
-
-Future integrations:
-
-```text
-AKS
- │
- ├── Azure Key Vault
- │
- ├── Azure Container Registry
- │
- └── Azure Storage Account
-```
-
 The Storage Account will serve as a foundational platform component supporting application workloads and infrastructure services.
 
 ---

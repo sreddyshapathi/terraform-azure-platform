@@ -223,52 +223,6 @@ Azure Container Registry
 AKS Pulls Image
 ```
 
----
-
-# Future Integrations
-
-The Azure Container Registry will integrate with:
-
-```text
-AKS
- │
- ├── Managed Identity
- │
- ├── Workload Identity
- │
- ├── GitHub Actions
- │
- └── Azure Monitor
-```
-
-Additional integrations:
-
-* Azure Key Vault
-* Storage Account
-* Monitoring Platform
-* Security Platform
-
----
-
-# Screenshots
-
-## Registry Overview
-
-Add Azure Portal screenshot.
-
-## Repository View
-
-Add Azure Portal screenshot.
-
-## Access Control (IAM)
-
-Add Azure Portal screenshot.
-
-## Networking Configuration
-
-Add Azure Portal screenshot.
-
----
 
 # Benefits
 
@@ -283,25 +237,6 @@ Key advantages of Azure Container Registry:
 
 ---
 
-# Roadmap
-
-Current Status:
-
-```text
-Resource Group      ✅
-Networking          ✅
-Storage Account     ✅
-Key Vault           ✅
-Azure Container Registry ✅
-```
-
-Next Phase:
-
-```text
-Azure Kubernetes Service (AKS)
-```
-
----
 
 # Conclusion
 

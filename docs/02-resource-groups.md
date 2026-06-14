@@ -104,20 +104,3 @@ Expected Resource Group:
 rg-dev-platform
 ```
 
----
-
-## Screenshots
-
-Add screenshots from Azure Portal after deployment.
-
-* Resource Group Overview
-* Resource Group Tags
-
----
-
-## Future Enhancements
-
-* Production Resource Group
-* Management Resource Group
-* Environment-specific tagging strategy
-* Policy assignments

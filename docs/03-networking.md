@@ -346,22 +346,8 @@ Verify Network Security Groups:
 az network nsg list --output table
 ```
 
----
 
-# Future Enhancements
 
-The following networking components will be implemented in future phases:
-
-* Route Tables
-* Azure Bastion
-* NAT Gateway
-* Azure Firewall
-* DDoS Protection Plan
-* Private DNS Zones
-* VNet Peering
-* Hub and Spoke Architecture
-
----
 
 # Conclusion
 

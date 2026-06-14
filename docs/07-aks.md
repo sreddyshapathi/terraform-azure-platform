@@ -45,15 +45,6 @@ kubectl get nodes
 kubectl get pods -A
 ```
 
-## Screenshots
-
-Add screenshots:
-
-* AKS Overview
-* Node Pools
-* Networking
-* Identity
-* Managed Resource Group
 
 ## Benefits
 

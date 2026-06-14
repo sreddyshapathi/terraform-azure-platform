@@ -110,12 +110,4 @@ Log Analytics Workspace
 * Centralized access control
 * Enterprise-grade architecture
 
-## Screenshots
 
-Add screenshots:
-
-* Role Assignments
-* ACR Integration
-* Key Vault Integration
-* Storage Integration
-* Log Analytics Integration
