@@ -1,217 +1,362 @@
-# Azure Enterprise Platform using Terraform
+# Azure Cloud Platform Infrastructure as Code using Terraform
 
-## Overview
+## Project Overview
 
-This project demonstrates the design and deployment of an enterprise-grade Azure platform using Terraform.
+This project demonstrates the deployment of a complete Azure cloud platform using Terraform.
 
-The goal is to build a reusable, scalable, and production-ready Azure landing zone that supports Kubernetes workloads, secure networking, centralized identity management, monitoring, and automation.
+The infrastructure follows Infrastructure as Code (IaC) principles and includes networking, storage, security, container platform, monitoring, and service integrations.
+
+The project is designed to showcase enterprise-grade Azure architecture, Terraform module design, monitoring, security, and AKS integrations.
 
 ---
 
-## Project Objectives
+# Architecture
 
-* Infrastructure as Code using Terraform
-* Environment segregation (Development and Production)
-* Azure Kubernetes Service (AKS)
+The platform consists of the following Azure services:
+
+* Resource Group
+* Virtual Network
+* Subnets
+* Network Security Groups
+* Storage Account
+* Azure Key Vault
 * Azure Container Registry (ACR)
-* Azure Key Vault Integration
-* Azure Storage Accounts
-* RBAC and Identity Management
-* Monitoring and Alerting
-* GitHub Actions CI/CD
-* Secure Terraform State Management
+* Azure Kubernetes Service (AKS)
+* Log Analytics Workspace
+* Azure Monitor
+* Diagnostic Settings
+* Action Groups
+* Alert Rules
 
 ---
 
-## Target Architecture
+# Solution Architecture
 
-```text
-Developer
-    │
-    ▼
 GitHub
-    │
-    ▼
-GitHub Actions
-    │
-    ▼
+
+↓
+
 Terraform
-    │
-    ▼
-Azure Subscription
-    │
-    ├── Resource Groups
-    ├── Virtual Networks
-    ├── Network Security Groups
-    ├── Storage Accounts
-    ├── Key Vault
-    ├── Azure Container Registry
-    ├── Azure Kubernetes Service
-    ├── Monitoring
-    └── Alerts
+
+↓
+
+Azure Platform
+
+├── Resource Group
+
+├── Networking
+
+│   ├── Virtual Network
+
+│   ├── AKS Subnet
+
+│   ├── Management Subnet
+
+│   └── Private Endpoint Subnet
+
+│
+
+├── Storage Account
+
+│   └── Blob Containers
+
+│
+
+├── Key Vault
+
+│
+
+├── Azure Container Registry
+
+│
+
+├── Azure Kubernetes Service
+
+│   └── System Node Pool
+
+│
+
+├── Log Analytics Workspace
+
+│
+
+└── Azure Monitor
+
+```
+├── Diagnostic Settings
+
+├── Action Groups
+
+└── Alert Rules
 ```
 
 ---
 
-## Repository Structure
+# Features
+
+## Infrastructure as Code
+
+* Modular Terraform design
+* Reusable Terraform modules
+* Environment-based deployment
+* Dev environment support
+
+## Networking
+
+* Virtual Network
+* Multiple Subnets
+* Network Security Groups
+* AKS subnet integration
+
+## Storage
+
+* Azure Storage Account
+* Blob Containers
+* Secure storage architecture
+
+## Security
+
+* Azure Key Vault
+* Managed Identities
+* Role-Based Access Control (RBAC)
+
+## Container Platform
+
+* Azure Kubernetes Service (AKS)
+* Azure Container Registry (ACR)
+* AKS to ACR integration
+
+## Monitoring
+
+* Log Analytics Workspace
+* Azure Monitor
+* Diagnostic Settings
+* Action Groups
+* Alert Rules
+
+---
+
+# Project Structure
 
 ```text
-terraform-azure-platform/
-│
-├── docs/
-├── diagrams/
+azure-cloud-terraform/
 │
 ├── modules/
-│   ├── resource_group/
+│   ├── resource-group/
 │   ├── network/
 │   ├── storage/
 │   ├── keyvault/
 │   ├── acr/
 │   ├── aks/
-│   ├── iam/
-│   ├── monitoring/
-│   ├── security/
-│   └── alerts/
+│   └── monitoring/
 │
 ├── environments/
-│   ├── dev/
-│   └── prod/
+│   └── dev/
+│
+├── docs/
+│   ├── 01-resource-group.md
+│   ├── 02-networking.md
+│   ├── 03-storage.md
+│   ├── 04-keyvault.md
+│   ├── 05-acr.md
+│   ├── 06-aks.md
+│   ├── 07-monitoring.md
+│   └── 08-integrations.md
 │
 └── README.md
 ```
 
 ---
 
-## Environments
+# Azure Resources Deployed
 
-### Development
-
-Used for infrastructure validation and testing.
-
-### Production
-
-Used for production workloads and business applications.
-
----
-
-## Implemented Components
-
-### Phase 1
-
-* [x] GitHub Repository
-* [x] Local Development Environment
-* [x] Azure Authentication
-* [x] Resource Group Module
-* [x] Resource Group Deployment
-
-### Phase 2
-
-* [ ] Virtual Network
-* [ ] Subnets
-* [ ] Network Security Groups
-
-### Phase 3
-
-* [ ] IAM and RBAC
-* [ ] Azure AD Groups
-
-### Phase 4
-
-* [ ] Storage Accounts
-* [ ] Azure Key Vault
-
-### Phase 5
-
-* [ ] Azure Container Registry
-* [ ] Azure Kubernetes Service
-
-### Phase 6
-
-* [ ] Monitoring
-* [ ] Azure Monitor
-* [ ] Log Analytics
-* [ ] Alerts
-
-### Phase 7
-
-* [ ] Prometheus
-* [ ] Grafana
-
-### Phase 8
-
-* [ ] Remote Terraform Backend
-* [ ] GitHub Actions CI/CD
+| Resource        | Purpose                               |
+| --------------- | ------------------------------------- |
+| Resource Group  | Logical container for Azure resources |
+| Virtual Network | Network isolation                     |
+| Subnets         | Workload segmentation                 |
+| NSGs            | Network security                      |
+| Storage Account | Blob storage                          |
+| Key Vault       | Secrets management                    |
+| ACR             | Container image repository            |
+| AKS             | Managed Kubernetes cluster            |
+| Log Analytics   | Centralized logging                   |
+| Azure Monitor   | Monitoring and alerting               |
 
 ---
 
-## Local Development Setup
+# AKS Integrations
 
-Refer:
+## AKS to ACR
 
-```text
-docs/01-local-setup.md
+Role Assignment:
+
+* AcrPull
+
+Purpose:
+
+Allows AKS to pull container images from Azure Container Registry.
+
+---
+
+## AKS to Key Vault
+
+Role Assignment:
+
+* Key Vault Secrets User
+
+Purpose:
+
+Allows AKS workloads to access secrets stored in Azure Key Vault.
+
+---
+
+## AKS to Storage
+
+Role Assignment:
+
+* Storage Blob Data Contributor
+
+Purpose:
+
+Allows AKS workloads to access Azure Storage resources.
+
+---
+
+## AKS to Log Analytics
+
+Role Assignment:
+
+* Log Analytics Reader
+
+Purpose:
+
+Allows AKS workloads to access monitoring resources.
+
+---
+
+# Monitoring Configuration
+
+## Log Analytics Workspace
+
+Centralized repository for logs and metrics.
+
+## Diagnostic Settings
+
+Configured for:
+
+* AKS
+* Azure Container Registry
+* Key Vault
+
+## Azure Monitor
+
+Configured with:
+
+* Action Groups
+* Alert Rules
+* Centralized Monitoring
+
+---
+
+# Validation Commands
+
+## Terraform
+
+```bash
+terraform fmt -recursive
+terraform validate
+terraform plan
+terraform apply
+```
+
+## AKS
+
+```bash
+az aks get-credentials \
+  --resource-group rg-dev-platform \
+  --name aks-dev-platform
+```
+
+```bash
+kubectl get nodes
+```
+
+```bash
+kubectl get pods -A
+```
+
+## Azure Resources
+
+```bash
+az group list
+```
+
+```bash
+az aks list
+```
+
+```bash
+az acr list
+```
+
+```bash
+az keyvault list
 ```
 
 ---
 
-## Documentation
+# Documentation
 
-| Document               | Description                          |
-| ---------------------- | ------------------------------------ |
-| 00-project-overview.md | Project Overview                     |
-| 01-local-setup.md      | Local Environment Setup              |
-| 02-resource-groups.md  | Resource Group Design and Deployment |
-| 03-networking.md       | Network Architecture                 |
-| 04-iam-rbac.md         | IAM and RBAC                         |
-| 05-storage.md          | Storage Accounts                     |
-| 06-keyvault.md         | Key Vault                            |
-| 07-acr.md              | Azure Container Registry             |
-| 08-aks.md              | Azure Kubernetes Service             |
-| 09-monitoring.md       | Monitoring and Alerting              |
-| 10-security.md         | Security Controls                    |
-| 11-terraform-state.md  | Remote Backend Design                |
-| 12-github-actions.md   | CI/CD Pipeline                       |
+Detailed implementation documentation is available in the docs folder.
+
+| Document             | Description                   |
+| -------------------- | ----------------------------- |
+| 01-resource-group.md | Resource Group deployment     |
+| 02-networking.md     | Networking architecture       |
+| 03-storage.md        | Storage Account configuration |
+| 04-keyvault.md       | Key Vault deployment          |
+| 05-acr.md            | Azure Container Registry      |
+| 06-aks.md            | Azure Kubernetes Service      |
+| 07-monitoring.md     | Monitoring and Alerting       |
+| 08-integrations.md   | Service Integrations          |
 
 ---
 
-## Current Status
+# Future Enhancements
 
-Current Phase:
+The following enhancements are planned:
 
-```text
-Phase 1 - Resource Groups
-```
+* Workload Identity
+* Secrets Store CSI Driver
+* Persistent Volumes
+* Persistent Volume Claims
+* Prometheus
+* Grafana
+* GitHub Actions CI/CD
+* Terraform Remote Backend
+* OIDC Authentication
 
-Next Phase:
-
-```text
-Phase 2 - Networking
-```
-## Current Status
-
-Current Phase:
-
-Phase 3 - Storage Completed
-
-Next Phase:
-
-Phase 4 - Key Vault
-
-### Phase 4 - Key Vault
-
-- [x] Azure Key Vault
-- [x] RBAC Authorization
-- [x] Soft Delete
-- [x] Purge Protection
 ---
-### Phase 5 - Container Platform
 
-- [x] Azure Container Registry (ACR)
-- [x] Private Container Registry
-- [x] Azure RBAC Authentication
+# Learning Outcomes
 
-## Author
+This project demonstrates:
+
+* Azure Infrastructure as Code
+* Terraform Module Design
+* Azure Networking
+* Azure Security
+* AKS Deployment
+* Azure Monitoring
+* Azure RBAC
+* Azure Service Integrations
+* Cloud Platform Engineering
+
+---
+
+# Author
 
 Sudhakar Reddy
 
-Azure | Terraform | Kubernetes | DevOps
+Azure Cloud Platform using Terraform
