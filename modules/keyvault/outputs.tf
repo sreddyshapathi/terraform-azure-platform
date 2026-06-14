@@ -9,3 +9,4 @@ output "keyvault_id" {
 output "vault_uri" {
   value = azurerm_key_vault.devkeyvault.vault_uri
 }
+

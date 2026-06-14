@@ -5,3 +5,8 @@ output "workspace_id" {
 output "workspace_name" {
   value = azurerm_log_analytics_workspace.devlog.name
 }
+
+output "action_group_id" {
+  value = azurerm_monitor_action_group.devact.id
+}
+

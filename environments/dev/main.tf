@@ -13,7 +13,7 @@ module "resource_group" {
 }
 
 
-/*module "network" {
+module "network" {
   source = "../../modules/network"
 
   resource_group_name = module.resource_group.resource_group_name
@@ -26,7 +26,7 @@ module "resource_group" {
   aks_subnet_cidr              = var.aks_subnet_cidr
   private_endpoint_subnet_cidr = var.private_endpoint_subnet_cidr
   management_subnet_cidr       = var.management_subnet_cidr
-}*/
+}
 
 module "storage" {
 
@@ -40,7 +40,7 @@ module "storage" {
 }
 
 
-/*module "keyvault" {
+module "keyvault" {
 
   source = "../../modules/keyvault"
 
@@ -49,7 +49,7 @@ module "storage" {
   location     = var.location
   environment  = var.environment
   project_name = var.project_name
-}*/
+}
 
 
 module "acr" {
@@ -65,6 +65,20 @@ module "acr" {
 }
 
 
+module "aks" {
+
+  source = "../../modules/aks"
+
+  resource_group_name = module.resource_group.resource_group_name
+
+  location     = var.location
+  environment  = var.environment
+  project_name = var.project_name
+
+  aks_subnet_id = module.network.aks_subnet_id
+}
+
+
 module "monitoring" {
 
   source = "../../modules/monitoring"
@@ -74,4 +88,10 @@ module "monitoring" {
   location     = var.location
   environment  = var.environment
   project_name = var.project_name
+
+  alert_email = "sreddyshapathi07@gmail.com"
+
+  aks_id      = module.aks.aks_id
+  keyvault_id = module.keyvault.keyvault_id
+  acr_id      = module.acr.acr_id
 }

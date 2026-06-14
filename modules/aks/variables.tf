@@ -14,19 +14,6 @@ variable "project_name" {
   type = string
 }
 
-variable "alert_email" {
+variable "aks_subnet_id" {
   type = string
 }
-
-variable "keyvault_id" {
-  type = string
-}
-
-variable "acr_id" {
-  type = string
-}
-
-variable "aks_id" {
-  type = string
-}
-
