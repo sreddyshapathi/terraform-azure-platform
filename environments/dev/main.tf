@@ -65,6 +65,7 @@ module "acr" {
 }
 
 
+
 module "aks" {
 
   source = "../../modules/aks"
@@ -76,6 +77,10 @@ module "aks" {
   project_name = var.project_name
 
   aks_subnet_id = module.network.aks_subnet_id
+  acr_id = module.acr.acr_id
+  keyvault_id = module.keyvault.keyvault_id
+  storage_account_id = module.storage.storage_account_id
+  log_analytics_workspace_id = module.monitoring.workspace_id
 }
 
 

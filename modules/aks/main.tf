@@ -68,3 +68,34 @@ resource "azurerm_kubernetes_cluster_node_pool" "userpool" {
   }
 }
 */
+
+resource "azurerm_role_assignment" "acr_pull" {
+
+  scope                = var.acr_id
+
+  role_definition_name = "AcrPull"
+
+  principal_id = azurerm_kubernetes_cluster.aks.kubelet_identity[0].object_id
+}
+
+resource "azurerm_role_assignment" "keyvault_secrets_user" {
+
+  scope = var.keyvault_id
+
+  role_definition_name = "Key Vault Secrets User"
+
+  principal_id = azurerm_kubernetes_cluster.aks.kubelet_identity[0].object_id
+}
+
+
+resource "azurerm_role_assignment" "storage_blob_contributor" {
+  scope                = var.storage_account_id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_kubernetes_cluster.aks.kubelet_identity[0].object_id
+}
+
+resource "azurerm_role_assignment" "log_analytics_reader" {
+  scope                = var.log_analytics_workspace_id
+  role_definition_name = "Log Analytics Reader"
+  principal_id         = azurerm_kubernetes_cluster.aks.kubelet_identity[0].object_id
+}
