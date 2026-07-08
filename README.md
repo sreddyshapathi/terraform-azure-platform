@@ -1,5 +1,5 @@
 # Azure Cloud Platform Infrastructure as Code using Terraform
-
+![alt text](<docs/00-High level architecture.md.png>)
 ## Project Overview
 
 This project demonstrates the deployment of a complete Azure cloud platform using Terraform.
@@ -7,6 +7,8 @@ This project demonstrates the deployment of a complete Azure cloud platform usin
 The infrastructure follows Infrastructure as Code (IaC) principles and includes networking, storage, security, container platform, monitoring, and service integrations.
 
 The project is designed to showcase enterprise-grade Azure architecture, Terraform module design, monitoring, security, and AKS integrations.
+
+
 
 ---
 
